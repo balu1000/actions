@@ -23,7 +23,7 @@ jobs:
       - name: Build&Push
         env:
           APP: "kbot"
-          REGISTRY: ${{ secrets.DOCHERHUB_USERNAME }}
+          REGISTRY: ${{ secrets.DOCKERHUB_USERNAME }}
         run: make image push
 
   cd:
