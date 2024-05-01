@@ -24,7 +24,7 @@ get:
 	go get
 
 build: format get
-		CGO_ENABLED=0 GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -v -o ${NAME} -ldflags "-X="github.com/balu1000/github-actions.git/cmd.appVersion=${VERSION}
+		CGO_ENABLED=0 GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -v -o ${NAME} -ldflags "-X="github.com/balu1000/actions.git/cmd.appVersion=${VERSION}
 
 linux: format get
 		GOOS=linux GOARCH=amd64 go build -v -o kbot -ldflags "-X="github.com/balu1000/kbot.git/cmd.appVersion=${VERSION}
