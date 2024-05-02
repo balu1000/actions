@@ -30,7 +30,7 @@ jobs:
         env:
           APP: "kbot"
           REGISTRY: ${{ secrets.DOCKERHUB_USERNAME }}
-        run: make image tag push
+        run: make image push
 
   cd:
     name: CD
