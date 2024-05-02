@@ -51,7 +51,7 @@ image:
 push:
 	docker push ${REGISTRY}/${APP}:${VERSION}${TARGETOS}-${TARGETARCH}
 	docker tag ${REGISTRY}/${APP}:${VERSION}${TARGETOS}-${TARGETARCH} ghcr.io/${REGISTRY}/${APP}:${VERSION}${TARGETOS}-${TARGETARCH}
-	docker push ghcr.io${REGISTRY}/${APP}:${VERSION}${TARGETOS}-${TARGETARCH}
+	docker push ghcr.io/${REGISTRY}/${APP}:${VERSION}${TARGETOS}-${TARGETARCH}
 
 clean:
 	rm -rf kbot
