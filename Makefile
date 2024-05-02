@@ -10,7 +10,7 @@ else
 endif
 TARGETARCH=amd64
 
-.PHONY: linux linux/arm macos macos/arm windows windows/arm image push clean build
+.PHONY: linux linux/arm macos macos/arm windows windows/arm 
 
 format:
 	gofmt -s -w ./
@@ -46,10 +46,11 @@ macos/arm: format get
 		CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 go build -v -o kbot -ldflags "-X="github.com/balu1000/kbot.git/cmd.appVersion=${VERSION}
 
 image:
-	docker build . -t balu1000/actions:${VERSION}-${TARGETOS}-${TARGETARCH}
+	docker build . -t ${REGISTRY}/${APP}:${VERSION}-${TARGETOS}-${TARGETARCH}
 
 push:
-    docker push balu1000/actions:${VERSION}-${TARGETOS}-${TARGETARCH}
+    docker push ${REGISTRY}/${APP}:${VERSION}-${TARGETOS}-${TARGETARCH}
+
 clean:
 	rm -rf kbot
 	rm -rf kbot.exe
