@@ -47,8 +47,8 @@ macos/arm: format get
 
 image:
 	docker build . -t ${REGISTRY}/${NAME}:${VERSION}-${TARGETOS}-${TARGETARCH}
-tag:
-    docker tag ${NAME}:${VERSION}-${TARGETOS}-${TARGETARCH} ghcr.io/${REGISTRY}/${REPO}/${NAME}:${VERSION}-${TARGETOS}-${TARGETARCH}
+#tag:
+    #docker tag ${NAME}:${VERSION}-${TARGETOS}-${TARGETARCH} ghcr.io/${REGISTRY}/${REPO}/${NAME}:${VERSION}-${TARGETOS}-${TARGETARCH}
 
 push:
 	#docker push ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
