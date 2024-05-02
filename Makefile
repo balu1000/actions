@@ -52,7 +52,8 @@ image:
 
 push:
 	#docker push ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
-    docker push ghcr.io/${REGISTRY}/${REPO}/${NAME}:${VERSION}-${TARGETOS}-${TARGETARCH}
+	docker tag ${NAME}:${VERSION}-${TARGETOS}-${TARGETARCH} ghcr.io/balu1000/actions/kbot:${VERSION}-${TARGETOS}-${TARGETARCH}
+    docker push ghcr.io/balu1000/actions/kbot:${VERSION}-${TARGETOS}-${TARGETARCH}
 clean:
 	rm -rf kbot
 	rm -rf kbot.exe
