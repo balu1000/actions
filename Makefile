@@ -50,7 +50,7 @@ image:
 
 push:
 	docker push balu1000/actions:${VERSION}-${TARGETOS}-${TARGETARCH}
-	docker tag balu1000/kactions:${VERSION}-${TARGETOS}-${TARGETARCH} ghcr.io/balu1000/actions:${VERSION}-${TARGETOS}-${TARGETARCH}
+	docker tag balu1000/actions:${VERSION}-${TARGETOS}-${TARGETARCH} ghcr.io/balu1000/actions:${VERSION}-${TARGETOS}-${TARGETARCH}
     docker push ghcr.io/balu1000/actions:${VERSION}-${TARGETOS}-${TARGETARCH}
 clean:
 	rm -rf kbot
