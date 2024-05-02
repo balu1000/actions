@@ -25,7 +25,7 @@ get:
 	go get
 
 build: format get
-		CGO_ENABLED=0 GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -v -o ${NAME} -ldflags "-X="github.com/${REGISTRY}/${REPO}.git/cmd.appVersion=${VERSION}
+		CGO_ENABLED=0 GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -v -o kbot -ldflags "-X="github.com/balu1000/actions.git/cmd.appVersion=${VERSION}
 
 linux: format get
 		GOOS=linux GOARCH=amd64 go build -v -o kbot -ldflags "-X="github.com/balu1000/kbot.git/cmd.appVersion=${VERSION}
@@ -46,15 +46,12 @@ macos/arm: format get
 		CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 go build -v -o kbot -ldflags "-X="github.com/balu1000/kbot.git/cmd.appVersion=${VERSION}
 
 image:
-	docker build . -t kbot:${VERSION}-${TARGETOS}-${TARGETARCH}
-#tag:
-    #docker tag ${NAME}:${VERSION}-${TARGETOS}-${TARGETARCH} ghcr.io/${REGISTRY}/${REPO}/${NAME}:${VERSION}-${TARGETOS}-${TARGETARCH}
+	docker build . -t ${REGISTRY}/${APP}:${VERSION}-${TARGETOS}-${TARGETARCH}
 
 push:
-	#docker push ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
-	docker tag kbot:${VERSION}-${TARGETOS}-${TARGETARCH} ghcr.io/balu1000/actions/kbot:${VERSION}-${TARGETOS}-${TARGETARCH}
-    docker push ghcr.io/balu1000/actions/kbot:${VERSION}-${TARGETOS}-${TARGETARCH}
+	docker tag ${REGISTRY}/${APP}:${VERSION}-${TARGETOS}-${TARGETARCH} ghcr.io/${REGISTRY}/${APP}:${VERSION}-${TARGETOS}-${TARGETARCH}
+    docker push ghcr.io/${REGISTRY}/${APP}:${VERSION}-${TARGETOS}-${TARGETARCH}
 clean:
 	rm -rf kbot
 	rm -rf kbot.exe
-	docker rmi ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
+	docker rmi ${REGISTRY}/${APP}:${VERSION}-${TARGETOS}-${TARGETARCH}
