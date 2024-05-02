@@ -49,7 +49,6 @@ image:
 	docker build . -t balu1000/actions:${VERSION}-${TARGETOS}-${TARGETARCH}
 
 push:
-	docker push balu1000/actions:${VERSION}-${TARGETOS}-${TARGETARCH}
 	docker tag balu1000/actions:${VERSION}-${TARGETOS}-${TARGETARCH} ghcr.io/balu1000/actions:${VERSION}-${TARGETOS}-${TARGETARCH}
     docker push ghcr.io/balu1000/actions:${VERSION}-${TARGETOS}-${TARGETARCH}
 clean:
