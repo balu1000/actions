@@ -10,7 +10,7 @@ else
 endif
 TARGETARCH=amd64
 
-.PHONY: linux linux/arm macos macos/arm windows windows/arm push
+.PHONY: linux linux/arm macos macos/arm windows windows/arm image push clean build
 
 format:
 	gofmt -s -w ./
@@ -49,7 +49,7 @@ image:
 	docker build . -t balu1000/actions:${VERSION}-${TARGETOS}-${TARGETARCH}
 
 push:
-    docker push ghcr.io/balu1000/actions:${VERSION}-${TARGETOS}-${TARGETARCH}
+    docker push balu1000/actions:${VERSION}-${TARGETOS}-${TARGETARCH}
 clean:
 	rm -rf kbot
 	rm -rf kbot.exe
