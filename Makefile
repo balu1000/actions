@@ -46,12 +46,12 @@ macos/arm: format get
 		CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 go build -v -o kbot -ldflags "-X="github.com/balu1000/kbot.git/cmd.appVersion=${VERSION}
 
 image:
-	docker build . -t ${REGISTRY}/${APP}:${VERSION}-${TARGETOS}-${TARGETARCH}
+	docker build . -t balu1000/actions:${VERSION}-${TARGETOS}-${TARGETARCH}
 
 push:
-	docker push ${REGISTRY}/${APP}:${VERSION}-${TARGETOS}-${TARGETARCH}
-	docker tag ${REGISTRY}/${APP}:${VERSION}-${TARGETOS}-${TARGETARCH} ghcr.io/${REGISTRY}/${APP}:${VERSION}-${TARGETOS}-${TARGETARCH}
-    docker push ghcr.io/${REGISTRY}/${APP}:${VERSION}-${TARGETOS}-${TARGETARCH}
+	docker push balu1000/actions:${VERSION}-${TARGETOS}-${TARGETARCH}
+	docker tag balu1000/kactions:${VERSION}-${TARGETOS}-${TARGETARCH} ghcr.io/balu1000/actions:${VERSION}-${TARGETOS}-${TARGETARCH}
+    docker push ghcr.io/balu1000/actions:${VERSION}-${TARGETOS}-${TARGETARCH}
 clean:
 	rm -rf kbot
 	rm -rf kbot.exe
