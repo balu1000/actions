@@ -26,10 +26,10 @@ jobs:
           registry: "ghcr.io"
           username: balu1000
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build&Push
-        env:
-          APP: "kbot"
-          REGISTRY: ${{ secrets.DOCKERHUB_USERNAME }}
+      #- name: Build&Push
+      #  env:
+      #    APP: "kbot"
+      #    REGISTRY: ${{ secrets.DOCKERHUB_USERNAME }}
         run: make image push
 
   cd:
