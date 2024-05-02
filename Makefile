@@ -10,7 +10,7 @@ else
 endif
 TARGETARCH=amd64
 
-.PHONY: linux linux/arm macos macos/arm windows windows/arm 
+.PHONY: linux linux/arm macos macos/arm windows windows/arm image push clean
 
 format:
 	gofmt -s -w ./
