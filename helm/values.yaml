@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   registry: "ghcr.io"
   repository: "balu1000/actions"
-  tag: "1.0.1-649f5e7-linux-amd64"
+  tag: "1.0.1-9311d15-linux-amd64"
   os: linux
   arch: amd64
 
