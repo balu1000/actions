@@ -2,6 +2,10 @@ name: KBOT-CICD
 
 on: push
 
+env:
+  TARGETARCH: amd64
+  TARGETOS: linux
+
 jobs:
   ci:
     name: CI
@@ -31,6 +35,9 @@ jobs:
           APP: "kbot"
           REGISTRY: ${{ secrets.DOCKERHUB_USERNAME }}
         run: make image push
+      - name: Clean
+        run: make clean
+
   CD:
     name: CD
     needs: ci
@@ -45,7 +52,7 @@ jobs:
 
     - uses: mikefarah/yq@master
       with:
-        cmd: yq -i '.image.tag=strenv(VERSION)' helm/values.yaml
+        cmd: yq -i '.image.tag=strenv(VERSION)' | .image.arch=strenv(TARGETOS)' | .image.arch=strenv(TARGETARCH)' helm/values.yaml
 
     - run: |
         git config user.name github-actions
