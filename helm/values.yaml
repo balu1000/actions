@@ -5,9 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: balu1000
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.1.6-2a4656b-linux-amd64"
+  registry: "ghcr.io"
+  repository: "balu1000/actions"
+  tag: "1.0.1-649f5e7-linux-amd64"
+  os: linux
   arch: amd64
 
 secret:
@@ -15,4 +16,4 @@ secret:
   env: TELE_TOKEN  
   key: token
 securityContext:
-  privileged: true  
+  privileged: true
