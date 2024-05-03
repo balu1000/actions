@@ -3,17 +3,25 @@
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
-
 image:
+<<<<<<< HEAD
   registry: "ghcr.io"
   repository: "balu1000/actions"
   tag: "1.0.1-649f5e7-linux-amd64"
   os: linux
+=======
+  repository: balu1000
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "1.0.1-649f5e7"
+>>>>>>> cebc791ccad6fb1f4ea830025322e5061bc6d19d
   arch: amd64
-
 secret:
   name: kbot
-  env: TELE_TOKEN  
+  env: TELE_TOKEN
   key: token
 securityContext:
+<<<<<<< HEAD
   privileged: true
+=======
+  privileged: true
+>>>>>>> cebc791ccad6fb1f4ea830025322e5061bc6d19d
