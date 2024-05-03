@@ -31,7 +31,7 @@ image:
 
 push:
 	docker push ${REGISTRY}/${APP}:${VERSION}
-	docker tag ${REGISTRY}/${APP}:${VERSION}-${TARGETOS}-${TARGETARCH} ghcr.io/${REGISTRY}/${APP}:${VERSION}
+	docker tag ${REGISTRY}/${APP}:${VERSION} ghcr.io/${REGISTRY}/${APP}:${VERSION}
 	docker push ghcr.io/${REGISTRY}/${APP}:${VERSION}
 
 clean:
